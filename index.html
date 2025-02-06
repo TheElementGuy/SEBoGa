@@ -12,7 +12,7 @@
 	<body>
 		<div class="w3-display-container" id="main">
 			<div class="w3-display-middle w3-jumbo">
-				<p><span id="turns">[Turn]</span></br>[Fusing]</p>
+				<p>Turns: <span id="turns">[Turn]</span></br><span id="butthole">[Fusing]</span></p>
 			</div>
 		</div>
 		<script>
@@ -23,6 +23,29 @@
 			}
 			function reloadTurns(numTurns) {
 				document.getElementById("turns").innerHTML = numTurns;
+			}
+			function reloadFusing(numTurns) {
+				var dwarf = false;
+				var mainSeq = false;
+				if (numTurns % 4 == 0) {
+					dwarf = true;
+				}
+				if (numTurns % 2 == 0) {
+					mainSeq = true;
+				}
+
+				var innards = "";
+
+				if (dwarf) {
+					innards = innards + "Dwarves fuse!";
+				}
+				if (mainSeq) {
+					innards = innards + "Main sequences fuse!";
+				}
+
+				innards = innards + "Red giants fuse!Red supergiants fuse 2!";
+
+				document.getElementById("butthole").innerHTML = innards;
 			}
 			reloadTurns(0);
 		</script>
