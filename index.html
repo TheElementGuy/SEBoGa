@@ -11,7 +11,17 @@
 	</head>
 	<body>
 		<div class="w3-display-container" id="main">
-			<p class="w3-display-middle w3-jumbo">[Turn]</br>[Fusing]</p>
+			<p class="w3-display-middle w3-jumbo"><span id="turns">[Turn]</span></br>[Fusing]</p>
 		</div>
+		<script>
+			var turns = 0;
+			function putUp() {
+				turns++;
+				reloadTurns(turns);
+			}
+			function reloadTurns(numTurns) {
+				document.getElementById("turns").innerHTML = numTurns;
+			}
+		</script>
 	</body>
 </html>
