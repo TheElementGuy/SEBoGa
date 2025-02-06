@@ -37,10 +37,10 @@
 			function reloadFusing(numTurns) {
 				var dwarf = false;
 				var mainSeq = false;
-				if (numTurns % 4 == 0) {
+				if ((numTurns - 1) % 4 == 0) {
 					dwarf = true;
 				}
-				if (numTurns % 2 == 0) {
+				if ((numTurns - 1) % 2 == 0) {
 					mainSeq = true;
 				}
 
@@ -58,7 +58,7 @@
 				document.getElementById("butthole").innerHTML = innards;
 			}
 			reloadTurns(initValue);
-			reloadFusing(-1);
+			reloadFusing(0);
 			document.addEventListener("keydown", putUp);
 		</script>
 	</body>
