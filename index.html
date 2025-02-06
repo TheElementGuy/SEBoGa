@@ -16,13 +16,20 @@
 			</div>
 		</div>
 		<script>
-			var turns = 0;
+			const initValue = 1;
+			var turns = initValue;
 			const main = document.getElementById("main");
 			function putUp(e) {
-				if (e.key == "ArrowUp")
-				turns++;
-				reloadTurns(turns);
-				reloadFusing(turns);
+				if (e.key == "ArrowUp") {
+					turns++;
+					reloadTurns(turns);
+					reloadFusing(turns);
+				}
+				if (e.key == "Enter") {
+					turns = initValue;
+					reloadTurns(turns);
+					reloadFusing(-1);
+				}
 			}
 			function reloadTurns(numTurns) {
 				document.getElementById("turns").innerHTML = numTurns;
