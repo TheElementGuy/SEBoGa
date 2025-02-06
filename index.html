@@ -10,16 +10,19 @@
 		</style>
 	</head>
 	<body>
-		<div class="w3-display-container" id="main">
+		<div class="w3-display-container" id="main" onkeydown="putUp">
 			<div class="w3-display-middle w3-jumbo">
-				<p>Turns: <span id="turns">[Turn]</span></br><span id="butthole">[Fusing]</span></p>
+				<p>Turns: <span id="turns">[Turn]</span></br><span id="butthole" class="w3-xl">[Fusing]</span></p>
 			</div>
 		</div>
 		<script>
 			var turns = 0;
-			function putUp() {
+			const main = document.getElementById("main");
+			function putUp(e) {
+				if (e.key == "ArrowUp")
 				turns++;
 				reloadTurns(turns);
+				reloadFusing(turns);
 			}
 			function reloadTurns(numTurns) {
 				document.getElementById("turns").innerHTML = numTurns;
@@ -37,17 +40,18 @@
 				var innards = "";
 
 				if (dwarf) {
-					innards = innards + "Dwarves fuse!";
+					innards = innards + "Dwarves fuse!<br>";
 				}
 				if (mainSeq) {
-					innards = innards + "Main sequences fuse!";
+					innards = innards + "Main sequences fuse!<br>";
 				}
 
-				innards = innards + "Red giants fuse!Red supergiants fuse 2!";
+				innards = innards + "Red giants fuse!<br>Red supergiants fuse 2!";
 
 				document.getElementById("butthole").innerHTML = innards;
 			}
 			reloadTurns(0);
+			main.addEventListener("keydown", putUp);
 		</script>
 	</body>
 </html>
